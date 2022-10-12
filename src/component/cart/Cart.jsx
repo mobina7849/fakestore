@@ -7,23 +7,8 @@ import clsx from "clsx";
 //import { CartContext } from "../../context/cart/CartProvider";
 import image from '../../assets/images/controller.png'
 import { Link } from "react-router-dom";
-const Cart = ({ open, handleClose }) => {
-  const [ cartItems, dispatch ] = useReducer(cartReducer,[
-    {
-      id:1,
-      image:image,
-      name:"کالا2",
-      price:2_000_000,
-      count:1
-    },
-    {
-      id:2,
-      image:image,
-      name:"کالا2",
-      price:2_000_000,
-      count:5
-    }
-  ]);
+const Cart = ({ open, handleClose,cartItems,dispatch }) => {
+
   useEffect(() => {
     document.addEventListener("click", handleClose);
     return () => {

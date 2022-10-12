@@ -15,9 +15,10 @@ const menuItem=[{
     title:"درباره ما",
     href:"/about-us"
 }]
-const Navbar = () => {
+const Navbar = ({cartItems, dispatch}) => {
    // console.log(menuItem)
    const [showCart, setShowCart] = useState(false);
+   const totalCount = cartItems.reduce((prev, p) => prev + p.count, 0);
 
     return (
         <nav className='Navbar'>
@@ -42,9 +43,10 @@ const Navbar = () => {
                         </li>
                         <li>
                             <IconButton onClick={() => setShowCart(true)}>
+                                {totalCount}
                                 <CartIcon/>
                             </IconButton>
-                            <Cart open={showCart} handleClose={() => setShowCart(false)} />
+                            <Cart cartItems={cartItems} dispatch={dispatch} open={showCart} handleClose={() => setShowCart(false)} />
                         </li>
                     </ul>
                 </div>

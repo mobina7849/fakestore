@@ -4,10 +4,10 @@ import Header from "./header/Header"
 import Navbar from "./navbar/Navbar"
 //baraye ezafe kardan children dar route
 import { Outlet } from 'react-router-dom';
-const Layout = () => {
+const Layout = ({cartItems, dispatch}) => {
     return ( 
         <React.Fragment>
-            <Navbar/>
+            <Navbar cartItems={cartItems} dispatch={dispatch}/>
             <Header/>
             <main>
                 <Outlet/>
